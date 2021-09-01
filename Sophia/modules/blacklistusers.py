@@ -1,7 +1,7 @@
 # Module to blacklist users and prevent them from using commands by @TheRealPhoenix
 import html
-import HexzyBot.modules.sql.blacklistusers_sql as sql
-from HexzyBot import (
+import Sophia.modules.sql.blacklistusers_sql as sql
+from Sophia import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -10,12 +10,12 @@ from HexzyBot import (
     WOLVES,
     dispatcher,
 )
-from HexzyBot.modules.helper_funcs.chat_status import dev_plus
-from HexzyBot.modules.helper_funcs.extraction import (
+from Sophia.modules.helper_funcs.chat_status import dev_plus
+from Sophia.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from HexzyBot.modules.log_channel import gloggable
+from Sophia.modules.log_channel import gloggable
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, run_async
@@ -165,5 +165,5 @@ dispatcher.add_handler(BL_HANDLER)
 dispatcher.add_handler(UNBL_HANDLER)
 dispatcher.add_handler(BLUSERS_HANDLER)
 
-__mod_name__ = "⚡️Blacklist-Users⚡️"
+__mod_name__ = "B-Users"
 __handlers__ = [BL_HANDLER, UNBL_HANDLER, BLUSERS_HANDLER]
