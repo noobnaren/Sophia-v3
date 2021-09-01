@@ -1,4 +1,4 @@
-#    Copyright (C) @Prabha_sha 2020-2021
+#    Copyright (C) @dihanofficial 2020-2021
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -13,7 +13,7 @@
 
 from sqlalchemy import Column, String
 
-from HexzyBot.modules.sql import BASE, SESSION
+from Sophia.modules.sql import BASE, SESSION
 
 
 class Nsfwatch(BASE):
