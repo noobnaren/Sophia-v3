@@ -11,10 +11,10 @@ import aiohttp
 from google_trans_new import google_translator
 from pyrogram import filters
 
-from HexzyBot import BOT_ID
-from HexzyBot.helper_extra.aichat import add_chat, get_session, remove_chat
-from HexzyBot.pyrogramee.pluginshelper import admins_only, edit_or_reply
-from HexzyBot import pbot as hexzy
+from Sophia import BOT_ID
+from Sophia.helper_extra.aichat import add_chat, get_session, remove_chat
+from Sophia.pyrogramee.pluginshelper import admins_only, edit_or_reply
+from Sophia import pbot as sophia
 
 translator = google_translator()
 import requests
@@ -42,7 +42,7 @@ async def fetch(url):
 layla_chats = []
 en_chats = []
 
-@hexzy.on_message(
+@sophia.on_message(
     filters.command("chatbot") & ~filters.edited & ~filters.bot & ~filters.private
 )
 @admins_only
@@ -59,20 +59,20 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("hexzy AI Already Activated In This Chat")
+            await lel.edit("Sophia AI Already Activated In This Chat")
             return
         await lel.edit(
-            f"hexzy AI Successfully Added For Users In The Chat {message.chat.id}"
+            f"Sophia AI Successfully Added For Users In The Chat {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await edit_or_reply(message, "`Processing...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("hexzy AI Was Not Activated In This Chat")
+            await lel.edit("Sophia AI Was Not Activated In This Chat")
             return
         await lel.edit(
-            f"hexzy AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"Sophia AI Successfully Deactivated For Users In The Chat {message.chat.id}"
         )
 
     elif status == "EN" or status == "en" or status == "english":
@@ -88,7 +88,7 @@ async def hmm(_, message):
         )
 
 
-@hexzy.on_message(
+@sophia.on_message(
     filters.text
     & filters.reply
     & ~filters.bot
@@ -114,9 +114,9 @@ async def hmm(client, message):
         message.continue_propagation()
     if chat_id in en_chats:
         test = msg
-        test = test.replace("hexzy", "Aco")
-        test = test.replace("hexzy", "Aco")
-        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@Hexzybot&ownername=@Prabhasha-p"
+        test = test.replace("sophia", "Aco")
+        test = test.replace("sophia", "Aco")
+        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@SophiaSLBot&ownername=@dihanrandila"
 
         try:
             r = requests.request("GET", url=URL)
@@ -130,7 +130,7 @@ async def hmm(client, message):
 
         pro = result["message"]
         try:
-            await hexzy.send_chat_action(message.chat.id, "typing")
+            await sophia.send_chat_action(message.chat.id, "typing")
             await message.reply_text(pro)
         except CFError:
             return
@@ -177,9 +177,9 @@ async def hmm(client, message):
         # test = emoji.demojize(test.strip())
 
 
-        test = test.replace("hexzy", "Aco")
-        test = test.replace("hexzy", "Aco")
-        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@HexzyBot&ownername=@Prabhasha-p"
+        test = test.replace("sophia", "Aco")
+        test = test.replace("sophia", "Aco")
+        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@SophiaSLBot&ownername=@dihanrandila"
         try:
             r = requests.request("GET", url=URL)
         except:
@@ -196,13 +196,13 @@ async def hmm(client, message):
             except:
                 return
         try:
-            await hexzy.send_chat_action(message.chat.id, "typing")
+            await sophia.send_chat_action(message.chat.id, "typing")
             await message.reply_text(pro)
         except CFError:
             return
 
 
-@hexzy.on_message(
+@sophia.on_message(
     filters.text & filters.private & ~filters.edited & filters.reply & ~filters.bot
 )
 async def inuka(client, message):
@@ -251,9 +251,9 @@ async def inuka(client, message):
     # test = emoji.demojize(test.strip())
 
     # Kang with the credits bitches @InukaASiTH
-    test = test.replace("hexzy", "Aco")
-    test = test.replace("hexzy", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Hexzybot&ownername=@imprabhasha"
+    test = test.replace("sophia", "Aco")
+    test = test.replace("sophia", "Aco")
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@SophiaSLBot&ownername=@dihanrandila"
     try:
         r = requests.request("GET", url=URL)
     except:
@@ -268,14 +268,14 @@ async def inuka(client, message):
     if not "en" in lan and not lan == "":
         pro = translator.translate(pro, lang_tgt=lan[0])
     try:
-        await hexzy.send_chat_action(message.chat.id, "typing")
+        await sophia.send_chat_action(message.chat.id, "typing")
         await message.reply_text(pro)
     except CFError:
         return
 
 
-@hexzy.on_message(
-    filters.regex("hexzy|hEXZY|Hexzy|HEXZY|hexy|hexi")
+@sophia.on_message(
+    filters.regex("sophia|sOPHIA|Sophia|SOPHIA|sophi|sophia")
     & ~filters.bot
     & ~filters.via_bot
     & ~filters.forwarded
@@ -329,9 +329,9 @@ async def inuka(client, message):
     # test = emoji.demojize(test.strip())
 
     # Kang with the credits bitches @InukaASiTH
-    test = test.replace("hexzy", "Aco")
-    test = test.replace("hexzy", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@HexzyBot&ownername=@Sachi"
+    test = test.replace("sophia", "Aco")
+    test = test.replace("sophia", "Aco")
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@SophiaSLBot&ownername=@dihanrandila"
     try:
         r = requests.request("GET", url=URL)
     except:
@@ -348,7 +348,7 @@ async def inuka(client, message):
         except Exception:
             return
     try:
-        await hexzy.send_chat_action(message.chat.id, "typing")
+        await sophia.send_chat_action(message.chat.id, "typing")
         await message.reply_text(pro)
     except CFError:
         return
@@ -356,10 +356,10 @@ async def inuka(client, message):
 
 __help__ = """
 <b> Chatbot </b>
-hexzy AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
+Sophia AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
  - /chatbot [ON/OFF]: Enables and disables AI Chat mode (EXCLUSIVE)
  - /chatbot EN : Enables English only chatbot
  
 """
 
-__mod_name__ = "⚡️Chatbot⚡️"
+__mod_name__ = "Chatbot 🤖"
