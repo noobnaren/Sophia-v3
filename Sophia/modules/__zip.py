@@ -5,9 +5,9 @@ import zipfile
 from telethon import types
 from telethon.tl import functions
 
-from HexzyBot import TEMP_DOWNLOAD_DIRECTORY
-from HexzyBot import telethn as client
-from HexzyBot.events import register
+from Sophia import TEMP_DOWNLOAD_DIRECTORY
+from Sophia import telethn as client
+from Sophia.events import register
 
 
 async def is_register_admin(chat, user):
@@ -47,7 +47,7 @@ async def _(event):
             )
             return
 
-    mone = await event.reply("⏳️ Please wait...")
+    mone = await event.reply("Please wait..")
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -209,9 +209,9 @@ def get_lst_of_files(input_directory, output_lst):
     return output_lst
 
 __help__ = """
- ❍ /zip  :  Reply to a telegram file to compress it in .zip format
- ❍ /unzip :  reply to a telegram file to decompress it from the .zip
- ❍ /encrypt: Encrypts The Given Text
- ❍ /decrypt: Decrypts Previously Ecrypted Text
+ - /zip  :  Reply to a telegram file to compress it in .zip format
+ - /unzip :  reply to a telegram file to decompress it from the .zip
+ - /encrypt: Encrypts The Given Text
+ - /decrypt: Decrypts Previously Ecrypted Text
  """
-__mod_name__ = "⚡️Zip⚡️"
+__mod_name__ = "Zip"
