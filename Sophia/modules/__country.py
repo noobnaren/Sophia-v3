@@ -112,3 +112,13 @@ Gathered By @SophiaSLBot.</b>
     )
     
     await event.delete()
+
+
+__help__ = """
+*Country* 
+
+*Commands*
+- /country [country name]*:* Gathering info about given country
+"""
+
+__mod_name__ = "Country"
