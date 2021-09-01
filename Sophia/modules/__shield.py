@@ -1,4 +1,4 @@
-#    Copyright (C) DevsExpo 2020-2021
+#    Copyright (C) Dihan Official 2020-2021
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -10,6 +10,7 @@
 #
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 
 
 import asyncio
@@ -25,21 +26,21 @@ from google_trans_new import google_translator
 from telethon import events
 from telethon.tl.types import ChatBannedRights
 
-from HexzyBot import BOT_ID
-from HexzyBot.conf import get_int_key, get_str_key
+from Sophia import BOT_ID
+from Sophia.conf import get_int_key, get_str_key
 
-# from HexzyBot.db.mongo_helpers.nsfw_guard import add_chat, get_all_nsfw_chats, is_chat_in_db, rm_chat
-from HexzyBot.pyrogramee.telethonbasics import is_admin
-from HexzyBot.events import register
-from HexzyBot import MONGO_DB_URI 
+
+from Sophia.Best_Of_Sophia.telethonbasics import is_admin
+from Sophia.events import register
+from Sophia import MONGO_DB_URI 
 from pymongo import MongoClient
-from HexzyBot.modules.sql_extended.nsfw_watch_sql import (
+from Sophia.modules.sql_extended.nsfw_watch_sql import (
     add_nsfwatch,
     get_all_nsfw_enabled_chat,
     is_nsfwatch_indb,
     rmnsfwatch,
 )
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 
 translator = google_translator()
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
@@ -48,7 +49,8 @@ MONGO_DB_URI = get_str_key("MONGO_DB_URI")
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client["HexzyBot"]
+db = client["Sophia"]
+
 
 async def is_nsfw(event):
     lmao = event
@@ -73,7 +75,7 @@ async def is_nsfw(event):
             return False
     img = starkstark
     f = {"file": (img, open(img, "rb"))}
-
+ 
     r = requests.post("https://starkapi.herokuapp.com/nsfw/", files=f).json()
     if r.get("success") is False:
         is_nsfw = False
@@ -82,9 +84,9 @@ async def is_nsfw(event):
     elif r.get("is_nsfw") is False:
         is_nsfw = False
     return is_nsfw
-
-
-@tbot.on(events.NewMessage(pattern="/gshield (.*)"))
+ 
+ 
+@tbot.on(events.NewMessage(pattern="/nsfwguardian (.*)"))
 async def nsfw_watch(event):
     if not event.is_group:
         await event.reply("You Can Only Nsfw Watch in Groups.")
@@ -127,8 +129,8 @@ async def nsfw_watch(event):
     else:
         await event.reply("`You Should Be Admin To Do This!`")
         return
-
-
+ 
+ 
 @tbot.on(events.NewMessage())
 async def ws(event):
     warner_starkz = get_all_nsfw_enabled_chat()
@@ -144,18 +146,29 @@ async def ws(event):
         return
     sender = await event.get_sender()
     await event.client.download_media(event.photo, "nudes.jpg")
-    if nude.is_nude("./nudes.jpg"):
+    img = "./nudes.jpg"
+    f = {"file": (img, open(img, "rb"))}
+    r = requests.post("https://starkapi.herokuapp.com/nsfw/", files=f).json()
+    if r.get("success") is False:
+        is_nsfw = False
+    elif r.get("is_nsfw") is True:
+        is_nsfw = True
+    elif r.get("is_nsfw") is False:
+        is_nsfw = False
+    return is_nsfw
+    if is_nsfw == True:
         await event.delete()
         st = sender.first_name
         hh = sender.id
-        final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, Yone deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By YoneAI` \n**#GROUP_GUARDIAN** "
+        final = f"**NSFW DETECTED**\n\n[{st}](tg://user?id={hh}) your message contain NSFW content.. So, Sophia deleted the message\n\n **Nsfw Sender - User / Bot :** [{st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By SophiaAI` \n**#GROUP_GUARDIAN** "
         dev = await event.respond(final)
-        await asyncio.sleep(10)
+        await asyncio.sleep(30)
         await dev.delete()
         os.remove("nudes.jpg")
-
-
+ 
+ 
 """
+ 
 @pbot.on_message(filters.command("nsfwguardian") & ~filters.edited & ~filters.bot)
 async def add_nsfw(client, message):
     if len(await member_permissions(message.chat.id, message.from_user.id)) < 1:
@@ -168,8 +181,10 @@ async def add_nsfw(client, message):
             await pablo.edit("This Chat is Already In My DB")
             return
         me = await client.get_me()
+ 
         add_chat(message.chat.id)
         await pablo.edit("Successfully Added Chat To NSFW Watch.")
+ 
         
     elif status == "off" or status=="OFF" or status == "disable":
         pablo = await message.reply("`Processing..`")
@@ -210,25 +225,27 @@ async def nsfw_watch(client, message):
             Escobar = midhun.id
         await client.send_message(
             message.chat.id,
-            f"**NSFW DETECTED**\n\n{hehe}'s message contain NSFW content.. So, Yone deleted the message\n\n **Nsfw Sender - User / Bot :** `{Escobar}` \n**Chat Title:** `{ctitle}` \n\n`⚔️Automatic Detections Powered By YoneAI` \n**#GROUP_GUARDIAN** ",
+            f"**NSFW DETECTED**\n\n{hehe}'s message contain NSFW content.. So, Sophia deleted the message\n\n **Nsfw Sender - User / Bot :** `{Escobar}` \n**Chat Title:** `{ctitle}` \n\n`⚔️Automatic Detections Powered By SophiaAI` \n**#GROUP_GUARDIAN** ",
         )
         message.continue_propagation()
+ 
+ 
 """
-
-
-
+ 
+ 
+# This Module is ported from https://github.com/MissJuliaRobot/MissJuliaRobot
 # This hardwork was completely done by MissJuliaRobot
 # Full Credits goes to MissJuliaRobot
-
-
+ 
+ 
 approved_users = db.approve
 spammers = db.spammer
 globalchat = db.globchat
-
+ 
 CMD_STARTERS = "/"
 profanity.load_censor_words_from_file("./profanity_wordlist.txt")
-
-
+ 
+ 
 @register(pattern="^/profanity(?: |$)(.*)")
 async def profanity(event):
     if event.fwd_from:
@@ -280,8 +297,8 @@ async def profanity(event):
     else:
         await event.reply("`You Should Be Admin To Do This!`")
         return
-
-
+ 
+ 
 @register(pattern="^/globalmode(?: |$)(.*)")
 async def profanity(event):
     if event.fwd_from:
@@ -294,7 +311,7 @@ async def profanity(event):
         await event.reply("`I Should Be Admin To Do This!`")
         return
     if await is_admin(event, event.message.sender_id):
-
+ 
         input = event.pattern_match.group(1)
         chats = globalchat.find({})
         if not input:
@@ -334,8 +351,8 @@ async def profanity(event):
     else:
         await event.reply("`You Should Be Admin To Do This!`")
         return
-
-
+ 
+ 
 @tbot.on(events.NewMessage(pattern=None))
 async def del_profanity(event):
     if event.is_private:
@@ -367,17 +384,17 @@ async def del_profanity(event):
                     await event.delete()
                     st = sender.first_name
                     hh = sender.id
-                    final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, Yone deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By YoneAI` \n**#GROUP_GUARDIAN** "
+                    final = f"**NSFW DETECTED**\n\n{st}](tg://user?id={hh}) your message contain NSFW content.. So, Sophia deleted the message\n\n **Nsfw Sender - User / Bot :** {st}](tg://user?id={hh})  \n\n`⚔️Automatic Detections Powered By SophiaAI` \n**#GROUP_GUARDIAN** "
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
                     os.remove("nudes.jpg")
-
-
+ 
+ 
 def extract_emojis(s):
     return "".join(c for c in s if c in emoji.UNICODE_EMOJI)
-
-
+ 
+ 
 @tbot.on(events.NewMessage(pattern=None))
 async def del_profanity(event):
     if event.is_private:
@@ -426,18 +443,21 @@ async def del_profanity(event):
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
+ 
+ 
 #
-
+ 
 __help__ = """
 <b> Group Guardian: </b>
-✪ Yone can protect your group from NSFW senders, Slag word users and also can force members to use English
-
+✪ Sophia can protect your group from NSFW senders, Slag word users and also can force members to use English
+ 
 <b>Commmands</b>
- - /gshield <i>on/off</i> - Enable|Disable Porn cleaning
+ - /nsfwguardian <i>on/off</i> - Enable|Disable Porn cleaning
  - /globalmode <i>on/off</i> - Enable|Disable English only mode
  - /profanity <i>on/off</i> - Enable|Disable slag word cleaning
  
-Note: Special credits goes to Julia project and Friday Project 
+Note: Special credits goes to Julia project and Friday Userbot
  
 """
-__mod_name__ = "⚡️Shield⚡️"
+__mod_name__ = "Group Guardian"
+ 
