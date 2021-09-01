@@ -1,4 +1,4 @@
-from HexzyBot.mongo import db
+from Sophia.mongo import db
 from typing import Dict, List, Union
 
 
