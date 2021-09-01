@@ -5,8 +5,8 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from HexzyBot import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
-from HexzyBot.modules.disable import DisableAbleCommandHandler
+from Sophia import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
+from Sophia.modules.disable import DisableAbleCommandHandler
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
@@ -586,7 +586,7 @@ dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
 dispatcher.add_handler(KAYO_SEARCH_HANDLER)
 dispatcher.add_handler(UPCOMING_HANDLER)
 
-__mod_name__ = "⚡️Anime⚡️"
+__mod_name__ = "Anime"
 __command_list__ = [
     "anime", "manga", "character", "user", "upcoming", "kaizoku", "airing",
     "kayo"
