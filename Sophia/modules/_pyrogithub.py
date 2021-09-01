@@ -1,16 +1,16 @@
-# © @Prabha_sha
+# © @DihanOfficial
 import aiohttp
 from pyrogram import filters
-from HexzyBot import pbot
-from HexzyBot.pyrogramee.errors import capture_err
+from Sophia import pbot
+from Sophia.pyrogramee.errors import capture_err
 
 
-__mod_name__ = "⚡️Github⚡️"
+__mod_name__ = "Github"
 
 __help__ = """
 Get information about Person In Github 
 *Available commands:*
- • `/git <User Name>`*:* returns information Person In Github 
+ - /git <User Name>*:* returns information Person In Github 
  """
 
 @pbot.on_message(filters.command('git'))
