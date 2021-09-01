@@ -1,4 +1,4 @@
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 import os
 import urllib.request
 from datetime import datetime
@@ -11,8 +11,8 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from HexzyBot import *
-from HexzyBot.events import register
+from Sophia import *
+from Sophia.events import register
 
 
 async def is_register_admin(chat, user):
@@ -33,7 +33,7 @@ async def _(event):
         return
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-       await event.reply("🚨 Need Admin Pewer.. You can't use this command.. But you can use in my [Pm](http://t.me/HexzyBot)")
+       await event.reply("🚨 Need Admin Pewer.. You can't use this command.. But you can use in my [Pm](http://t.me/SophiaSLBot)")
        return
 
     start = datetime.now()
@@ -93,9 +93,10 @@ async def _(event):
 
 
 __help__ = """
-I can convert text to voice and voice to text..
- ❍ /tts <lang code>*:* Reply to any message to get text to speech output
- ❍ /stt*:* Type in reply to a voice message(support english only) to extract text from it.
+*Commands*
+- /tts: Reply to any message to get text to speech output
+- /stt: Type in reply to a voice message(english only) to extract text from it.
+
 *Language Codes*
 `af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
 et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
@@ -105,4 +106,4 @@ sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,
 vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`
 """
 
-__mod_name__ = "⚡️TTS/STT⚡️"
+__mod_name__ = "Text To Speech"
