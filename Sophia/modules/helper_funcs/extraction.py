@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from HexzyBot import LOGGER
-from HexzyBot.modules.users import get_user_id
+from Sophia import LOGGER
+from Sophia.modules.users import get_user_id
 from telegram import Message, MessageEntity
 from telegram.error import BadRequest
 
