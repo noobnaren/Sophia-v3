@@ -1,17 +1,17 @@
 import html
 from typing import Optional
 
-import HexzyBot.modules.sql.blsticker_sql as sql
-from HexzyBot import LOGGER, dispatcher
-from HexzyBot.modules.connection import connected
-from HexzyBot.modules.disable import DisableAbleCommandHandler
-from HexzyBot.modules.helper_funcs.alternate import send_message
-from HexzyBot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from HexzyBot.modules.helper_funcs.misc import split_message
-from HexzyBot.modules.helper_funcs.string_handling import extract_time
+import Sophia.modules.sql.blsticker_sql as sql
+from Sophia import LOGGER, dispatcher
+from Sophia.modules.connection import connected
+from Sophia.modules.disable import DisableAbleCommandHandler
+from Sophia.modules.helper_funcs.alternate import send_message
+from Sophia.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Sophia.modules.helper_funcs.misc import split_message
+from Sophia.modules.helper_funcs.string_handling import extract_time
 
-from HexzyBot.modules.log_channel import loggable
-from HexzyBot.modules.warns import warn
+from Sophia.modules.log_channel import loggable
+from Sophia.modules.warns import warn
 from telegram import Chat, Message, ParseMode, Update, User, ChatPermissions
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
@@ -494,7 +494,7 @@ def __stats__():
     )
 
 
-__mod_name__ = "⚡️Sticker-Bl⚡️"
+__mod_name__ = "B-Sticker"
 
 BLACKLIST_STICKER_HANDLER = DisableAbleCommandHandler(
     "blsticker", blackliststicker, admin_ok=True
