@@ -1,11 +1,11 @@
 import html
-from HexzyBot.modules.disable import DisableAbleCommandHandler
-from HexzyBot import dispatcher, DRAGONS
-from HexzyBot.modules.helper_funcs.extraction import extract_user
+from Sophia.modules.disable import DisableAbleCommandHandler
+from Sophia import dispatcher, DRAGONS
+from Sophia.modules.helper_funcs.extraction import extract_user
 from telegram.ext import CallbackContext, CallbackQueryHandler, Filters, run_async
-import HexzyBot.modules.sql.approve_sql as sql
-from HexzyBot.modules.helper_funcs.chat_status import user_admin
-from HexzyBot.modules.log_channel import loggable
+import Sophia.modules.sql.approve_sql as sql
+from Sophia.modules.helper_funcs.chat_status import user_admin
+from Sophia.modules.log_channel import loggable
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
@@ -200,11 +200,11 @@ Sometimes, you might trust a user not to send unwanted content.
 Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
 That's what approvals are for - approve of trustworthy users to allow them to send 
 *Admin commands:*
-- `/approval`*:* Check a user's approval status in this chat.
-- `/approve`*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-- `/unapprove`*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-- `/approved`*:* List all approved users.
-- `/unapproveall`*:* Unapprove *ALL* users in a chat. This cannot be undone.
+- /approval*:* Check a user's approval status in this chat.
+- /approve*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
+- /unapprove*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
+- /approved*:* List all approved users.
+- /unapproveall*:* Unapprove *ALL* users in a chat. This cannot be undone.
 """
 
 APPROVE = DisableAbleCommandHandler("approve", approve)
@@ -221,6 +221,6 @@ dispatcher.add_handler(APPROVAL)
 dispatcher.add_handler(UNAPPROVEALL)
 dispatcher.add_handler(UNAPPROVEALL_BTN)
 
-__mod_name__ = "⚡️Approvals⚡️"
+__mod_name__ = "Approvals"
 __command_list__ = ["approve", "unapprove", "approved", "approval"]
 __handlers__ = [APPROVE, DISAPPROVE, APPROVED, APPROVAL]
