@@ -64,12 +64,12 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/HexzyBot
-RUN git clone -b shiken https://github.com/Prabhasha-p/HexzyBot /root/HexzyBot
-WORKDIR /root/HexzyBot
+# Copy Python Requirements to /root/Sophia
+RUN git clone -b shiken https://github.com/dihanofficial/sophia /root/Sophia
+WORKDIR /root/Sophia
 
-#Copy config file to /root/HexzyBot/HexzyBot
-COPY ./HexzyBot/sample_config.py ./HexzyBot/config.py* /root/HexzyBot/HexzyBot/
+#Copy config file to /root/Sophia/Sophia
+COPY ./Sophia/sample_config.py ./Sophia/config.py* /root/Sophia/Sophia/
 
 ENV PATH="/home/bot/bin:$PATH"
 
@@ -77,4 +77,4 @@ ENV PATH="/home/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","HexzyBot"]
+CMD ["python3","-m","Sophia"]
