@@ -1,6 +1,6 @@
 from enum import IntEnum, unique
 
-from HexzyBot.modules.helper_funcs.string_handling import button_markdown_parser
+from Sophia.modules.helper_funcs.string_handling import button_markdown_parser
 from telegram import Message
 
 
