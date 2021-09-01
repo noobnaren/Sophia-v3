@@ -1,25 +1,26 @@
+# Credits for @DihanOfficial
+
+
 import os
-#svaan 
-# Credits for @Prabha_sha
 
 import requests
 import wget
 from pyrogram import filters
 
-from HexzyBot import pbot as Prabha_sha
-from HexzyBot.pyrogramee.dark import get_arg
+from Sophia import pbot as Dihan
+from Sophia.pyrogramee.dark import get_arg
 
 
-@Prabha_sha.on_message(filters.command("saavn"))
+@Dihan.on_message(filters.command("saavn"))
 async def song(client, message):
     message.chat.id
     message.from_user["id"]
     args = get_arg(message) + " " + "song"
     if args.startswith(" "):
-        await message.reply("<b>Enter song name</b>")
+        await message.reply("Enter song name.")
         return ""
     m = await message.reply_text(
-        "Downloading your song,\nPlz wait ⏳️"
+        "Downloading.."
     )
     try:
         r = requests.get(f"https://jostapi.herokuapp.com/saavn?query={args}")
@@ -44,7 +45,7 @@ import os
 import aiofiles
 import aiohttp
 from pyrogram import filters
-from HexzyBot import pbot as Hexzy
+from Sophia import pbot as Sophia
 
 ARQ = "https://thearq.tech/"
 
@@ -58,7 +59,7 @@ async def fetch(url):
     return data
 
 async def download_song(url):
-    song_name = f"Hexzy.mp3"
+    song_name = f"Sophia.mp3"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
             if resp.status == 200:
@@ -68,7 +69,7 @@ async def download_song(url):
     return song_name
 
 
-@Hexzy.on_message(filters.command("deezer"))
+@Sophia.on_message(filters.command("deezer"))
 async def deezer(_, message):
     if len(message.command) < 2:
         await message.reply_text("Download Now Deezer")
@@ -98,7 +99,7 @@ import os
 import aiofiles
 import aiohttp
 from pyrogram import filters
-from HexzyBot import pbot as CHABEE
+from Sophia import pbot as CHABEE
 
 ARQ = "https://thearq.tech/"
 
@@ -146,7 +147,7 @@ async def deezer(_, message):
     await m.delete()
     
     
-__mod_name__ = "⚡️Songs⚡️"
+__mod_name__ = "Music"
 
 __help__ = """
 • `/song`** <songname artist(optional)>: download the song in it's best quality available.(API BASED)
