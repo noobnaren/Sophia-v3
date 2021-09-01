@@ -5,7 +5,7 @@ from sys import argv
 from typing import Optional
 from pyrogram import filters, idle
 
-from HexzyBot import (
+from Sophia import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -26,10 +26,10 @@ from HexzyBot import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from HexzyBot.modules import ALL_MODULES
-from HexzyBot.modules.helper_funcs.chat_status import is_user_admin
-from HexzyBot.modules.helper_funcs.misc import paginate_modules
-from HexzyBot.modules.sudoers import bot_sys_stats
+from Sophia.modules import ALL_MODULES
+from Sophia.modules.helper_funcs.chat_status import is_user_admin
+from Sophia.modules.helper_funcs.misc import paginate_modules
+from Sophia.modules.sudoers import bot_sys_stats
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -76,7 +76,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = f"""
-Hello, \n I'M Hexzy 
+Hello, \n I'M Sophia 
 ɪ'ᴍ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ[️️ ️](https://telegra.ph/file/9f06565978a17c20794c7.jpg)ɢʀᴏᴜᴘꜱ! ʜɪᴛ /help
 Maintained by @ImPrabhasha ❤
 """
@@ -84,16 +84,16 @@ Maintained by @ImPrabhasha ❤
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/HexzyBot?startgroup=true"),
+            text="➕️ ᴀᴅᴅ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/SophiaSLBot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="hexzy_"),
+        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="sophia_"),
         InlineKeyboardButton(
             text="ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
         ),
     ],
     [
-        InlineKeyboardButton(text="ʟᴏɢꜱ", url=f"https://t.me/HexzyLogs"),
+        InlineKeyboardButton(text="ʟᴏɢꜱ", url=f"https://t.me/SophiaLogs"),
         InlineKeyboardButton(
             text="System Stats 💻", callback_data="stats_callback"
         ),
@@ -105,13 +105,13 @@ buttons = [
 
 
 HELP_STRINGS = """
-`Hi.. I'M` Hexzy    [️️ ️](https://telegra.ph/file/9f06565978a17c20794c7.jpg)
+`Hi.. I'M` Sophia    [️️ ️](https://telegra.ph/file/9f06565978a17c20794c7.jpg)
 `ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`
 Powered by @HiTechRocket """
 
 DONATE_STRING = """Hey, glad to hear you want to donate!
- You can support the project Of [𝙋𝙧𝙖𝙗𝙝𝙖𝙨𝙝𝙖 •••](t.me/Prabha_sha) \
- Supporting isnt always financial! [HiTech Rocket](t.me/HiTechRocket) \
+ You can support the project Of [dihan randila](t.me/dihanrandila) \
+ Supporting isnt always financial! [Dihan Official](t.me/dihanofficial) \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
 IMPORTED = {}
@@ -125,7 +125,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("HexzyBot.modules." + module_name)
+    imported_module = importlib.import_module("Sophia.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -353,11 +353,11 @@ def help_button(update, context):
 
 
 @run_async
-def hexzy_about_callback(update, context):
+def sophia_about_callback(update, context):
     query = update.callback_query
-    if query.data == "hexzy_":
+    if query.data == "sophia_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *Hexzy*, a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm *Sophia*, a powerful group management bot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
@@ -365,22 +365,19 @@ def hexzy_about_callback(update, context):
                  \n❍ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n❍ I check for admins' permissions before executing any command and more stuffs
                  \n\n_Layla's licensed under the GNU General Public License v3.0_
-                 \n❍ Awesome Secret @HiTechRocket
-                 \n❍ Support Group @HiTechRockets
-                 \n❍ Assistant @HexzyAsistant.
-                 \nHere is the [💾Repository](https://github.com/Prabhasha-p/HexzyBot).
-                 \n\nIf you have any question about Hexzy, let us know at .""",
+                 \nHere is the [💾Repository](https://github.com/dihanofficial/sophia).
+                 \n\nIf you have any question about Sophia, let us know at .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Home🏘", callback_data="hexzy_back")
+                    InlineKeyboardButton(text="Back", callback_data="sophia_back")
                  ]
                 ]
             ),
         )
-    elif query.data == "hexzy_back":
+    elif query.data == "sophia_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -400,8 +397,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm *Hexzy*
-                 \nHere is the [Source Code](https://github.com/Prabhasha-p/HexzyBot) .""",
+            text=""" Hi..🤗 I'm *Sophia*
+                 \nHere is the [Source Code](https://github.com/dihanofficial/sophia) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -696,7 +693,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Yes I'm alive 😹")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I'm Online Now 💫")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
@@ -713,7 +710,7 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    about_callback_handler = CallbackQueryHandler(hexzy_about_callback, pattern=r"hexzy_")
+    about_callback_handler = CallbackQueryHandler(sophia_about_callback, pattern=r"sophia_")
     source_callback_handler = CallbackQueryHandler(Source_about_callback, pattern=r"source_")
 
     donate_handler = CommandHandler("donate", donate)
