@@ -1,11 +1,11 @@
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 import os
 import re
 import bs4
 import requests
 from telethon import types
 from telethon.tl import functions
-from HexzyBot.events import register
+from Sophia.events import register
 
 langi = "en"
 
@@ -107,3 +107,5 @@ async def imdb(e):
         )
     except IndexError:
         await e.reply("Plox enter **Valid movie name** kthx")
+
+
