@@ -1,7 +1,7 @@
 import threading
 
-from HexzyBot import dispatcher
-from HexzyBot.modules.sql import BASE, SESSION
+from Sophia import dispatcher
+from Sophia.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
     ForeignKey,
