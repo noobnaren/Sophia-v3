@@ -1,5 +1,5 @@
-from HexzyBot.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
-from HexzyBot import DRAGONS
+from Sophia.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
+from Sophia import DRAGONS
 from telethon.tl.types import ChannelParticipantsAdmins
 
 
