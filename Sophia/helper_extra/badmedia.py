@@ -1,4 +1,4 @@
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 import requests
 import time
 
