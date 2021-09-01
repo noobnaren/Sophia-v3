@@ -5,23 +5,23 @@ from telegram import ParseMode, Message
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-import HexzyBot.modules.sql.notes_sql as sql
-from HexzyBot import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
-from HexzyBot.__main__ import DATA_IMPORT
-from HexzyBot.modules.helper_funcs.chat_status import user_admin
-from HexzyBot.modules.helper_funcs.alternate import typing_action
+import Sophia.modules.sql.notes_sql as sql
+from Sophia import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
+from Sophia.__main__ import DATA_IMPORT
+from Sophia.modules.helper_funcs.chat_status import user_admin
+from Sophia.modules.helper_funcs.alternate import typing_action
 
-# from HexzyBot.modules.rules import get_rules
-import HexzyBot.modules.sql.rules_sql as rulessql
+# from Sophia.modules.rules import get_rules
+import Sophia.modules.sql.rules_sql as rulessql
 
-# from HexzyBot.modules.sql import warns_sql as warnssql
-import HexzyBot.modules.sql.blacklist_sql as blacklistsql
-from HexzyBot.modules.sql import disable_sql as disabledsql
+# from Sophia.modules.sql import warns_sql as warnssql
+import Sophia.modules.sql.blacklist_sql as blacklistsql
+from Sophia.modules.sql import disable_sql as disabledsql
 
-# from HexzyBot.modules.sql import cust_filters_sql as filtersql
-# import HexzyBot.modules.sql.welcome_sql as welcsql
-import HexzyBot.modules.sql.locks_sql as locksql
-from HexzyBot.modules.connection import connected
+# from Sophia.modules.sql import cust_filters_sql as filtersql
+# import Sophia.modules.sql.welcome_sql as welcsql
+import Sophia.modules.sql.locks_sql as locksql
+from Sophia.modules.connection import connected
 
 
 @run_async
@@ -325,7 +325,7 @@ def export_data(update, context):
         },
     }
     baccinfo = json.dumps(backup, indent=4)
-    with open("HexzyBot{}.backup".format(chat_id), "w") as f:
+    with open("Sophia{}.backup".format(chat_id), "w") as f:
         f.write(str(baccinfo))
     context.bot.sendChatAction(current_chat_id, "upload_document")
     tgl = time.strftime("%H:%M:%S - %d/%m/%Y", time.localtime(time.time()))
@@ -341,15 +341,15 @@ def export_data(update, context):
         pass
     context.bot.sendDocument(
         current_chat_id,
-        document=open("HexzyBot{}.backup".format(chat_id), "rb"),
-        caption="💾*Successfully Exported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `HexzyBot-Backup` was specially made for notes 📚.".format(
+        document=open("Sophia{}.backup".format(chat_id), "rb"),
+        caption="💾*Successfully Exported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Sophia-Backup` was specially made for notes 📚.".format(
             chat.title, chat_id, tgl
         ),
         timeout=360,
         reply_to_message_id=msg.message_id,
         parse_mode=ParseMode.MARKDOWN,
     )
-    os.remove("HexzyBot{}.backup".format(chat_id))  # Cleaning file
+    os.remove("Sophia{}.backup".format(chat_id))  # Cleaning file
 
 
 # Temporary data
@@ -367,15 +367,15 @@ def get_chat(chat_id, chat_data):
         return {"status": False, "value": False}
 
 
-__mod_name__ = "⚡️Backup⚡️"
+__mod_name__ = "Backup"
 
 __help__ = """
 *Only for group owner:*
 
- ❍ /import: Reply to the backup file for the butler / emilia group to import as much as possible, making transfers very easy! \
+ - /import: Reply to the backup file for the butler / emilia group to import as much as possible, making transfers very easy! \
  Note that files / photos cannot be imported due to telegram restrictions.
 
- ❍ /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons) \
+ - /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons) \
 
 """
 
