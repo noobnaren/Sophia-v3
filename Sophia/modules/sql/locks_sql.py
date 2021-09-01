@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from HexzyBot.modules.sql import SESSION, BASE
+from Sophia.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):
