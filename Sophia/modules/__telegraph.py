@@ -1,12 +1,12 @@
-from HexzyBot.events import register
-from HexzyBot import telethn as tbot
+from Sophia.events import register
+from Sophia import telethn as tbot
 TMP_DOWNLOAD_DIRECTORY = "./"
 from telethon import events
 import os
 from PIL import Image
 from datetime import datetime
 from telegraph import Telegraph, upload_file, exceptions
-Hero = "Hexzy"
+Hero = "Sophia"
 telegraph = Telegraph()
 r = telegraph.create_account(short_name=Hero)
 auth_url = r["auth_url"]
@@ -80,9 +80,9 @@ def resize_image(image):
 
 
 __help__ = """
-I can upload files to Telegraph
- ❍ /tm :Get Telegraph Link Of Replied Media
- ❍ /txt :Get Telegraph Link of Replied Text
+*Available Commands for Telegraph*
+ - /tm :Get Telegraph Link Of Replied Media
+ - /txt :Get Telegraph Link of Replied Text
 """
 
-__mod_name__ = "⚡️Telegraph⚡️"
+__mod_name__ = "Telegraph"
