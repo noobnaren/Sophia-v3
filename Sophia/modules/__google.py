@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 import glob
 import io
 import os
@@ -21,9 +21,9 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from HexzyBot import *
+from Sophia import *
 
-from HexzyBot.events import register
+from Sophia.events import register
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36"
@@ -35,7 +35,7 @@ async def _(event):
     if event.fwd_from:
         return
     
-    webevent = await event.reply("searching........")
+    webevent = await event.reply("Searching..")
     match = event.pattern_match.group(1)
     page = re.findall(r"page=\d+", match)
     try:
@@ -267,7 +267,7 @@ async def apk(e):
             + app_link
             + "'>View in Play Store</a>"
         )
-        app_details += "\n\n »»» App By @HexzyBot «««« "
+        app_details += "\n\n »»» App By @SophiaSLBot «««« "
         await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
         await e.reply("No result found in search. Please enter **Valid app name**")
@@ -275,17 +275,17 @@ async def apk(e):
         await e.reply("Exception Occured:- " + str(err))
 
 
-__mod_name__ = "⚡️Search⚡️"
+__mod_name__ = "Search"
 
 __help__ = """
- ❍ /google <text>*:* Perform a google search
- ❍ /img <text>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
- ❍ /app <appname>*:* Searches for an app in Play Store and returns its details.
- ❍ /reverse: Does a reverse image search of the media which it was replied to.
- ❍ /gps <location>*:* Get gps location.
- ❍ /github <username>*:* Get information about a GitHub user.
- ❍ /country <country name>*:* Gathering info about given country
- ❍ /imdb <Movie name>*:* Get full info about a movie with imdb.com
- ❍ Yone <query>*:* Yone answers the query
-  💡Ex: `Yone where is India?`
+ - /google <text>*:* Perform a google search
+ - /img <text>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
+ - /app <appname>*:* Searches for an app in Play Store and returns its details.
+ - /reverse: Does a reverse image search of the media which it was replied to.
+ - /gps <location>*:* Get gps location.
+ - /github <username>*:* Get information about a GitHub user.
+ - /country <country name>*:* Gathering info about given country
+ - /imdb <Movie name>*:* Get full info about a movie with imdb.com
+ - Sophia <query>*:* Sophia answers the query
+    - Ex: `Sophia where is Sri Lanka ?`
 """
