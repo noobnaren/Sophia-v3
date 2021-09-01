@@ -1,8 +1,8 @@
-#Credits @Prabha_sha
+#Credits @dihanrandila
 
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 import os
-from HexzyBot.events import register
+from Sophia.events import register
 import secureme
 
 @register(pattern="^/encrypt ?(.*)")
