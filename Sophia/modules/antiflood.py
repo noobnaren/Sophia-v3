@@ -4,15 +4,15 @@ import re
 
 from telegram import Message, Chat, Update, User, ChatPermissions
 
-from HexzyBot import TIGERS, WOLVES, dispatcher
-from HexzyBot.modules.helper_funcs.chat_status import (
+from Sophia import TIGERS, WOLVES, dispatcher
+from Sophia.modules.helper_funcs.chat_status import (
     bot_admin,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
 )
-from HexzyBot.modules.log_channel import loggable
-from HexzyBot.modules.sql import antiflood_sql as sql
+from Sophia.modules.log_channel import loggable
+from Sophia.modules.sql import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -23,10 +23,10 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html, escape_markdown
-from HexzyBot.modules.helper_funcs.string_handling import extract_time
-from HexzyBot.modules.connection import connected
-from HexzyBot.modules.helper_funcs.alternate import send_message
-from HexzyBot.modules.sql.approve_sql import is_approved
+from Sophia.modules.helper_funcs.string_handling import extract_time
+from Sophia.modules.connection import connected
+from Sophia.modules.helper_funcs.alternate import send_message
+from Sophia.modules.sql.approve_sql import is_approved
 
 FLOOD_GROUP = 3
 
@@ -425,7 +425,7 @@ will result in restricting that user.
  `1w` = 1 week
  """
 
-__mod_name__ = "⚡️Control⚡️"
+__mod_name__ = "AntiFlood"
 
 FLOOD_BAN_HANDLER = MessageHandler(
     Filters.all & ~Filters.status_update & Filters.group, check_flood
