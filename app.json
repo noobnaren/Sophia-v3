@@ -1,7 +1,7 @@
 {
-      "name": "Hexzy bot",
+      "name": "Sophia",
       "description": "Telegram group management bot.",
-      "logo": "https://telegra.ph/file/a81c20e8ecb36ba6d4d6a.jpg",
+      "logo": "https://telegra.ph/file/64425218fa3fdbfd3dc5e.jpg",
       "keywords": [
          "telegram",
          "anime",
@@ -9,7 +9,7 @@
          "manager",
          "Hexzy"
       ],   
-   "repository": "https://github.com/prabhasha-p/HexzyBot",
+   "repository": "https://github.com/dihanofficial/Sophia",
    "addons": [
       {
          "options": {
@@ -67,12 +67,12 @@
       },
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "HEROGAMERS1"
+         "value": "dihanrandila"
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
          "required": true,
-         "value": "AwesomeSupport"
+         "value": "dihan_official"
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",
@@ -182,7 +182,7 @@
       "DONATION_LINK": {
          "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
          "required": false,
-         "value": "https://t.me/HiTechRocket"
+         "value": "https://t.me/dihanofficial"
       },
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
