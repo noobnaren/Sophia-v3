@@ -1,12 +1,12 @@
 import random, html
 
-from HexzyBot import dispatcher
-from HexzyBot.modules.disable import (
+from Sophia import dispatcher
+from Sophia.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from HexzyBot.modules.sql import afk_sql as sql
-from HexzyBot.modules.users import get_user_id
+from Sophia.modules.sql import afk_sql as sql
+from Sophia.modules.users import get_user_id
 from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
@@ -151,7 +151,7 @@ dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
 dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
 
-__mod_name__ = "⚡️AFK⚡️"
+__mod_name__ = "Afk"
 __command_list__ = ["afk"]
 __handlers__ = [
     (AFK_HANDLER, AFK_GROUP),
