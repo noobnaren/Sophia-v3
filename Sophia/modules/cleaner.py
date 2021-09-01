@@ -1,15 +1,15 @@
 
 import html
 
-from HexzyBot import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from HexzyBot.modules.disable import DisableAbleCommandHandler
-from HexzyBot.modules.helper_funcs.chat_status import (
+from Sophia import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from Sophia.modules.disable import DisableAbleCommandHandler
+from Sophia.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
     user_admin,
 )
-from HexzyBot.modules.sql import cleaner_sql as sql
+from Sophia.modules.sql import cleaner_sql as sql
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
@@ -243,7 +243,7 @@ dispatcher.add_handler(REMOVE_CLEAN_BLUE_TEXT_GLOBAL_HANDLER)
 dispatcher.add_handler(LIST_CLEAN_BLUE_TEXT_HANDLER)
 dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, BLUE_TEXT_CLEAN_GROUP)
 
-__mod_name__ = "⚡️Bluetext-Clean⚡️"
+__mod_name__ = "Bluetext-Clean"
 __handlers__ = [
     SET_CLEAN_BLUE_TEXT_HANDLER,
     ADD_CLEAN_BLUE_TEXT_HANDLER,
