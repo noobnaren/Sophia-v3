@@ -12,9 +12,9 @@ import speedtest
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from wget import download
 
-from HexzyBot import aiohttpsession as aiosession
-from HexzyBot.utils import aiodownloader
-from HexzyBot.utils.fetch import fetch
+from Sophia import aiohttpsession as aiosession
+from Sophia.utils import aiodownloader
+from Sophia.utils.fetch import fetch
 
 """
 Just import 'downloader' anywhere and do downloader.download() to
