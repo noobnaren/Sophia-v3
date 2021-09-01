@@ -6,18 +6,18 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-import HexzyBot.modules.sql.blacklist_sql as sql
-from HexzyBot import dispatcher, LOGGER
-from HexzyBot.modules.disable import DisableAbleCommandHandler
-from HexzyBot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from HexzyBot.modules.helper_funcs.extraction import extract_text
-from HexzyBot.modules.helper_funcs.misc import split_message
-from HexzyBot.modules.log_channel import loggable
-from HexzyBot.modules.warns import warn
-from HexzyBot.modules.helper_funcs.string_handling import extract_time
-from HexzyBot.modules.connection import connected
-from HexzyBot.modules.sql.approve_sql import is_approved
-from HexzyBot.modules.helper_funcs.alternate import send_message, typing_action
+import Sophia.modules.sql.blacklist_sql as sql
+from Sophia import dispatcher, LOGGER
+from Sophia.modules.disable import DisableAbleCommandHandler
+from Sophia.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Sophia.modules.helper_funcs.extraction import extract_text
+from Sophia.modules.helper_funcs.misc import split_message
+from Sophia.modules.log_channel import loggable
+from Sophia.modules.warns import warn
+from Sophia.modules.helper_funcs.string_handling import extract_time
+from Sophia.modules.connection import connected
+from Sophia.modules.sql.approve_sql import is_approved
+from Sophia.modules.helper_funcs.alternate import send_message, typing_action
 
 BLACKLIST_GROUP = 11
 
@@ -449,7 +449,7 @@ def __stats__():
     )
 
 
-__mod_name__ = "⚡️BlackList⚡️"
+__mod_name__ = "BlackList"
 
 __help__ = """
 
