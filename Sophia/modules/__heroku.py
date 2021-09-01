@@ -5,8 +5,8 @@ import os
 import heroku3
 import requests
 
-from HexzyBot import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
-from HexzyBot.events import register
+from Sophia import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
+from Sophia.events import register
 
 heroku_api = "https://api.heroku.com"
 Heroku = heroku3.from_key(HEROKU_API_KEY)
@@ -112,7 +112,7 @@ async def dyno_usage(dyno):
     """
     Get your account Dyno Usage
     """
-    die = await dyno.reply("**Processing...**")
+    die = await dyno.reply("Processing..")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -191,7 +191,7 @@ async def _(dyno):
         dyno.chat_id,
         "logs.txt",
         reply_to=dyno.id,
-        caption="yone Bot Logz.",
+        caption="Sophia Bot Logs.",
     )
 
     await asyncio.sleep(5)
