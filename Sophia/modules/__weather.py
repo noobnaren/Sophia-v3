@@ -1,4 +1,4 @@
-from HexzyBot import telethn as tbot
+from Sophia import telethn as tbot
 import io
 import os
 import time
@@ -9,9 +9,9 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from HexzyBot import *
+from Sophia import *
 
-from HexzyBot.events import register
+from Sophia.events import register
 
 
 async def is_register_admin(chat, user):
@@ -73,7 +73,7 @@ async def _(event):
         await event.reply(response_api["message"])
 
 
-@register(pattern="^/wttr (.*)")
+@register(pattern="^/weatherimg (.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -87,3 +87,13 @@ async def _(event):
         response_api = await response_api_zero.read()
         with io.BytesIO(response_api) as out_file:
             await event.reply(file=out_file)
+
+
+__mod_name__ = "Weather"
+
+__help__ = """
+Available Commands:
+
+- /weather (city name) : Gives weather forcast
+- /weatherimg (city name) : Gives weather image
+"""
