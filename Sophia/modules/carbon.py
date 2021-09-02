@@ -10,8 +10,6 @@ from Sophia.utils.functions import make_carbon
 __mod_name__ = "Carbon"
 
 __help__ = """
- *Help for Carbon Module:*
-
 Commands
  - /carbon : Reply to a text message to make carbon.
 """
